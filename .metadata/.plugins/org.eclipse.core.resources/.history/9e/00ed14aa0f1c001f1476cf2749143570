@@ -1,0 +1,7 @@
+package com.account.exception;
+
+
+@ControllerAdviceO
+public class GlobalExceptionHandler {
+
+}

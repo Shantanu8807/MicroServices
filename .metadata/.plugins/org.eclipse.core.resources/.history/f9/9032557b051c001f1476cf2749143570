@@ -1,0 +1,14 @@
+package com.account.dto;
+
+
+
+
+public class AccountsDto {
+	
+private Long accountNumber;
+	
+	private String accoutnType;
+	
+	private String branchAddress;
+
+}

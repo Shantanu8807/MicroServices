@@ -1,0 +1,5 @@
+package com.account.exception;
+
+public class CustomerAlreadyExistsException extends RuntimeException {
+
+}

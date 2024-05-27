@@ -1,0 +1,27 @@
+package com.account.mapper;
+
+import com.account.dto.AccountsDto;
+import com.account.dto.CustomerDto;
+import com.account.entity.Accounts;
+import com.account.entity.Customer;
+
+public class CustomerMapper {
+	
+	public static CustomerDto mapToCustomerDto(Customer acc, CustomerDto accDto) {
+		accDto.setAccountNumber(acc.getAccountNumber());
+		accDto.setAccoutnType(acc.getAccoutnType());
+		accDto.setBranchAddress(acc.getBranchAddress());
+
+		return accDto;
+	}
+
+	public static Accounts mapToCustomer(AccountsDto accDto, Accounts acc) {
+		acc.setAccountNumber(accDto.getAccountNumber());
+		acc.setAccoutnType(accDto.getAccoutnType());
+		acc.setBranchAddress(accDto.getBranchAddress());
+
+		return acc;
+	}
+
+
+}

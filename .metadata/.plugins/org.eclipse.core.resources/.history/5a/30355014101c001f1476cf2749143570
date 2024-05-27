@@ -1,0 +1,15 @@
+package com.account.exception;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+import com.account.dto.ErrorResponseDto;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	
+	public ReponseEntity<ErrorResponseDto> handleCustomerAlreadyExistsException(CustomerAlreadyExistsException exception)
+	{
+		
+	}
+
+}

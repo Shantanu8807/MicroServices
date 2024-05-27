@@ -1,0 +1,10 @@
+spring.application.name=Account
+
+server.port=8080
+
+spring.datasource.url=jdbc:
+spring.datasource.username=sa
+spring.datasource.password=
+
+
+

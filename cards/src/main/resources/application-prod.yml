@@ -1,0 +1,18 @@
+#spring:
+# config:
+#  activate:
+#   on-profile: "prod"
+
+
+
+build:
+  version: "1.0"
+  
+accounts:
+  message: "Welcome prod"
+  contactDetails:
+    name: "abcd3"
+    email: "abcd3@.com"
+  onCallSuppport:
+    -11111111
+    -22222222

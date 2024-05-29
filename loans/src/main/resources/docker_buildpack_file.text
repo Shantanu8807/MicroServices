@@ -1,0 +1,5 @@
+<image>
+						<name>shantanu7088/${project.artifactId}:v1</name>
+					</image>
+
+this should be written in configuration in pom.xml and then in command prompt we have to write mvn spring-boot:build-image to build the docker image from the loans microsrevice folder 

@@ -1,0 +1,13 @@
+<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.3.2</version>
+				<configuration>
+					<to>
+						<image>shantanu7088/${project.artifactId}:v1</image>
+					</to>
+					</configuration>
+			</plugin>
+
+
+this plugin should be added in pom.xml for creating the docker image and after this is added go to command prompt in cards microservice and run command "mvn compile jib:dockerBuild" 

@@ -1,0 +1,45 @@
+
+services:
+  accounts:
+    image: "shantanu7088/accounts:v1"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - shantanu
+
+  loans:
+    image: "shantanu7088/loans:v1"
+    container_name: loans-ms
+    ports:
+      - "8081:8081"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - shantanu
+
+  cards:
+    image: "shantanu7088/cards:v1"
+    container_name: cards-ms
+    ports:
+      - "8082:8082"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - shantanu
+
+networks:
+  shantanu:
+    driver: bridge
+    
+    
+    
+#docker compose up command should be run from cmd from inside aacounts microservice folder

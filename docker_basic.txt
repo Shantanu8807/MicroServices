@@ -119,6 +119,19 @@ docker run -d --hostname my-rabbit --name some-rabbit rabbitmq:3
 
 dockerhub profile url = https://hub.docker.com/repositories/shantanu7088
 
+docker compose file has to be created for running multiple docker images 
+
+docker compose has to be installed in the system
+
+docker file naming convention is docker-compose.yml
+
+docker compose up command should be run from cmd from inside aacounts microservice folder
+
+docker compose up -d cmd is used to run docker images
+
+docker compose down to stop the container from desktop
+
+
 
 
 

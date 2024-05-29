@@ -1,0 +1,136 @@
+when we run docker run command it will download the image from hub.docker.com which is a docker registry
+
+A Registry can contain multiple repositories.
+
+image is a set of bytes and its running version is container.
+
+docker run -p 5000(host port):5000(container port)
+
+
+docker run -p 5000(host port):5000(container port) -d it will run in detached version means in background with just (-d)
+
+docker -logs is used to check the docker logs
+
+docker container ls is used to list all the running container 
+
+docker run -p 5001:5000 is used when we want to run same application again on different port of system but on same port of docker
+
+docker images will list the images present locally in the environment
+
+docker container stop "container id" is used for stopping the container 
+
+we write commands to docker clients and commands then goes to docker daemon for execution
+
+docker daemon is reponsible for Containers,local images, images registry for uploading or downloading images
+
+docker can be installed on the cloud 
+
+virtual machines are heavy that is why docker came 
+
+docker pull mysql is the image 
+docker search mysql is used to serch myslq images in the local
+
+
+docker image history "image id" is used to check the history of the image
+
+docker image remove "image id" to remove the image from the local machine 
+
+
+docker container pause "container id" is used for pausing container 
+
+docker container unpause "container id"
+
+docker container prune is used to remove all stopped containers
+
+docker container kill "container id"
+
+when we use the --restart=always/no it will restart the container whenever the docker is restarted
+
+docker events show the logs of the docker 
+
+docker top is used to check the process running in the container 
+
+docker stats show all the details about the container 
+
+docker run -m 512m --cpu-quota 5000 it will assign the memory can be used by container and cpu used by container 
+
+docker system df is used for checking details 
+
+
+zipkin is used to do distributed tracing which provides the UI for checking
+docker run -p 9411:9411 openzipkin/zipkin:2.23 is used for running zipkin 
+
+
+micrometer 
+>open telemetry
+>zipkin
+
+  this is all used by springboot 3 for tracing logging etc
+
+<dependency>
+<groupId>io.micrometer</groupId>
+<artifactId>micrometer-observation</artifactId>
+</dependency>
+
+
+<dependency>
+<groupId>io.micrometer</groupId>
+<artifactId>micrometer-tracing-bridge-otel</artifactId>
+</dependency>
+
+
+<dependency>
+<groupId>io.opentelemetry</groupId>
+<artifactId>opentelemetry-exporter-zipkin</artifactId>
+</dependency>
+
+
+
+
+in springboot 3 
+management.tracing.sampling.probability=1.0
+
+logging.patern.level=%5p
+
+
+<build>
+<plugins>
+<plugin>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-maven-plugin</artifactId>
+<configuration>
+<image>
+<name> shantanu7088${project.artifactId}:S4</name>
+</plugin>
+</plugins>
+</build>
+
+this is used to create images for docker 
+
+We can also use gooogle jib,buildpacks and paketo to create docker images.
+
+docker image push docker.io/shantanu7088/accounts:s4
+
+
+
+we user spring cloud bus for acheiving configuration with out restarting the application for that we need rabbitmq image 
+docker run -d --hostname my-rabbit --name some-rabbit rabbitmq:3
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

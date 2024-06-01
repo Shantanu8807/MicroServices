@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cards.constants.CardsConstants;
+import com.cards.dto.CardsContactInfoDto;
 import com.cards.dto.CardsDto;
 import com.cards.dto.ResponseDto;
 import com.cards.service.ICardsService;
@@ -27,11 +28,14 @@ import jakarta.validation.constraints.Pattern;
 @RequestMapping(path = "/api", produces = { MediaType.APPLICATION_JSON_VALUE })
 @Validated
 public class CardsController {
-    
+    	
 	@Autowired
 	private ICardsService iCardsService;
     @Autowired
 	private Environment env;
+    
+    @Autowired
+    private CardsContactInfoDto cardsContactInfoDto;
 
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDto> createCard(
@@ -76,6 +80,12 @@ public class CardsController {
 	@GetMapping("/java-version")
 	public ResponseEntity<String> getBuildDetails() {
 		return ResponseEntity.status(HttpStatus.OK).body(env.getProperty("JAVA_HOME"));
+	}
+	
+	@GetMapping("/contact-info")
+	public ResponseEntity<CardsContactInfoDto> getContactInfo()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(cardsContactInfoDto);	
 	}
 
 }

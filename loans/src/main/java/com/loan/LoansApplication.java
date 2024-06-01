@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import com.loan.dto.AccountsContactInfoDto;
+import com.loan.dto.LoansContactInfoDto;
 
 @SpringBootApplication
-@EnableConfigurationProperties(value=AccountsContactInfoDto.class)
+@EnableConfigurationProperties(value=LoansContactInfoDto.class)
 public class LoansApplication {
 
 	public static void main(String[] args) {

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.account.contants.Constants;
+import com.account.dto.AccountsContactInfoDto;
 import com.account.dto.CustomerDto;
 import com.account.dto.ResponseDto;
 import com.account.service.IAccountsService;
@@ -30,6 +31,9 @@ public class AccountsController {
 	
 	@Value("${build.version}")
 	private String buildVersion;
+	
+	@Autowired
+	private AccountsContactInfoDto accContactsInfoDto;
 
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDto> createAccount(@RequestBody CustomerDto customerDto) {
@@ -73,6 +77,12 @@ public class AccountsController {
 	public ResponseEntity<String> getBuildInfo()
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
+	}
+	
+	@GetMapping("/contact-info")
+	public ResponseEntity<AccountsContactInfoDto> getContactInfo()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(accContactsInfoDto);	
 	}
 
 }

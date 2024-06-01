@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.loan.constants.LoansConstants;
-import com.loan.dto.AccountsContactInfoDto;
+import com.loan.dto.LoansContactInfoDto;
 import com.loan.dto.LoansDto;
 import com.loan.dto.ResponseDto;
 import com.loan.service.ILoansService;
@@ -37,7 +37,7 @@ public class LoansController {
 
 	private ILoansService iLoansService;
 	
-	private AccountsContactInfoDto accContactsInfoDto;
+	private LoansContactInfoDto loansContactsInfoDto;
 
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDto> createLoan(
@@ -80,9 +80,9 @@ public class LoansController {
 	}
 	
 	@GetMapping("/contact-info")
-	public ResponseEntity<AccountsContactInfoDto> getContactInfo()
+	public ResponseEntity<LoansContactInfoDto> getContactInfo()
 	{
-		return ResponseEntity.status(HttpStatus.OK).body(accContactsInfoDto);	
+		return ResponseEntity.status(HttpStatus.OK).body(loansContactsInfoDto);	
 	}
 
 }

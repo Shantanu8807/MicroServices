@@ -29,9 +29,6 @@ public class AccountsController {
 	@Autowired
 	private IAccountsService iaccService;
 	
-	@Value("${build.version}")
-	private String buildVersion;
-	
 	@Autowired
 	private AccountsContactInfoDto accContactsInfoDto;
 
@@ -73,11 +70,10 @@ public class AccountsController {
 					.body(new ResponseDto(Constants.Status_500, Constants.Message_500, LocalDateTime.now()));
 		}
 	}
-	@GetMapping("/build-info")
-	public ResponseEntity<String> getBuildInfo()
-	{
-		return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
-	}
+	/*
+	 * @GetMapping("/build-info") public ResponseEntity<String> getBuildInfo() {
+	 * return ResponseEntity.status(HttpStatus.OK).body(buildVersion); }
+	 */
 	
 	@GetMapping("/contact-info")
 	public ResponseEntity<AccountsContactInfoDto> getContactInfo()

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.loan.constants.LoansConstants;
+import com.loan.dto.AccountsContactInfoDto;
 import com.loan.dto.LoansDto;
 import com.loan.dto.ResponseDto;
 import com.loan.service.ILoansService;
@@ -35,6 +36,8 @@ import lombok.AllArgsConstructor;
 public class LoansController {
 
 	private ILoansService iLoansService;
+	
+	private AccountsContactInfoDto accContactsInfoDto;
 
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDto> createLoan(
@@ -74,6 +77,12 @@ public class LoansController {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(
 					new ResponseDto(LoansConstants.STATUS_417, LoansConstants.MESSAGE_417_DELETE, LocalDateTime.now()));
 		}
+	}
+	
+	@GetMapping("/contact-info")
+	public ResponseEntity<AccountsContactInfoDto> getContactInfo()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(accContactsInfoDto);	
 	}
 
 }

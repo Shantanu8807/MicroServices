@@ -2,6 +2,8 @@ package com.account.controller;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +21,15 @@ import com.account.dto.CustomerDto;
 import com.account.dto.ResponseDto;
 import com.account.service.IAccountsService;
 
-import lombok.AllArgsConstructor;
-
 @RestController
 @RequestMapping(path = "/api/v1", produces = (MediaType.APPLICATION_JSON_VALUE))
-@AllArgsConstructor
 public class AccountsController {
-
+    
+	@Autowired
 	private IAccountsService iaccService;
+	
+	@Value("${build.version}")
+	private String buildVersion;
 
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDto> createAccount(@RequestBody CustomerDto customerDto) {
@@ -65,6 +68,11 @@ public class AccountsController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body(new ResponseDto(Constants.Status_500, Constants.Message_500, LocalDateTime.now()));
 		}
+	}
+	@GetMapping("/build-info")
+	public ResponseEntity<String> getBuildInfo()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
 	}
 
 }

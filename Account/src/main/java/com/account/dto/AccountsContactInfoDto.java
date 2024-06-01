@@ -4,11 +4,19 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 @ConfigurationProperties(prefix="accounts")
-public record AccountsContactInfoDto(String msg,Map<String,String> contactDetails,List<String> onCallSupport) {
+@Getter 
+@Setter
+public class AccountsContactInfoDto
+{   
+	String msg;
+	Map<String,String> contactDetails;
+	List<String> onCallSupport;
+}
       
 	
-}

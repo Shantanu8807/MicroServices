@@ -1,9 +1,0 @@
-package com.account.dto;
-
-import lombok.AllArgsConstructor;
-
-@Data
-@AllArgsConstructor
-public class ResponseDto {
-
-}

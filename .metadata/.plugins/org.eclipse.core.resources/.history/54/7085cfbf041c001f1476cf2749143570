@@ -1,9 +1,0 @@
-package com.account.repo;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.account.entity.Accounts;
-
-public interface AccountRepo extends JpaRepository<Accounts,Long>{
-
-}

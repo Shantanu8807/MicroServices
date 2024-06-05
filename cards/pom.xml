@@ -116,7 +116,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>shantanu7088/${project.artifactId}:v1</image>
+						<image>shantanu7088/${project.artifactId}:v2</image>
 					</to>
 					</configuration>
 			</plugin>

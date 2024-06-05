@@ -133,7 +133,7 @@ docker compose down to stop the container from desktop
 
 for generating all the docker images and pushing to docker hub we go by steps
 1. mvn compile jib:dockerBuild for creating images
-2. for pushing the images to docker hub so that compose command can download and run the images
+2. for pushing the image to docker hub so that compose command can download and run the images
     docker images push docker.io/shantanu7088/accounts:v1
 
 

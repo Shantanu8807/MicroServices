@@ -138,7 +138,8 @@ for generating all the docker images and pushing to docker hub we go by steps
 
 
 
-
+for running redis rate limiter we run docker command 
+docker run -p 6379:6379 --name eazyredis -d redis 
 
 <<<<<<< HEAD
 

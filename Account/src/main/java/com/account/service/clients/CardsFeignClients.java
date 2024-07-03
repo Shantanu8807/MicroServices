@@ -10,7 +10,7 @@ import com.account.dto.CardsDto;
 
 import jakarta.validation.constraints.Pattern;
 
-@FeignClient("cards")
+@FeignClient(name="cards" ,fallback=CardsFallback.class)
 public interface CardsFeignClients {
 	
 	@GetMapping("/fetch")

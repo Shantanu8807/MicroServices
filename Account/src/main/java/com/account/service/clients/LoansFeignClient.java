@@ -11,7 +11,7 @@ import com.account.dto.LoansDto;
 import jakarta.validation.constraints.Pattern;
 
 
-@FeignClient("loans")
+@FeignClient(name="loans",fallback=LoansFallback.class)
 public interface LoansFeignClient {
 	@GetMapping("/fetch")
 	public ResponseEntity<LoansDto> fetchLoanDetails(@RequestHeader("shantanu-correlation-id")String correlationId,

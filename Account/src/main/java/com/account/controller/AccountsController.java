@@ -3,7 +3,6 @@ package com.account.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +20,8 @@ import com.account.dto.AccountsContactInfoDto;
 import com.account.dto.CustomerDto;
 import com.account.dto.ResponseDto;
 import com.account.service.IAccountsService;
+
+import io.github.resilience4j.retry.annotation.Retry;
 
 @RestController
 @RequestMapping(path = "/api/v1", produces = (MediaType.APPLICATION_JSON_VALUE))
@@ -74,11 +75,18 @@ public class AccountsController {
 	 * @GetMapping("/build-info") public ResponseEntity<String> getBuildInfo() {
 	 * return ResponseEntity.status(HttpStatus.OK).body(buildVersion); }
 	 */
-	
+	@Retry(name="/getContactInfo",fallbackMethod="getContactInfoFallback")
 	@GetMapping("/contact-info")
 	public ResponseEntity<AccountsContactInfoDto> getContactInfo()
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(accContactsInfoDto);	
 	}
+	
+	
+	public ResponseEntity<AccountsContactInfoDto> getContactInfoFallback(Throwable throwable)
+	{
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);	
+	}
+	
 
 }

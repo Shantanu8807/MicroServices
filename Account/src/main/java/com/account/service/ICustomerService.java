@@ -5,5 +5,5 @@ import com.account.dto.CutomerDetailsDto;
 public interface ICustomerService {
      
 	
-	public CutomerDetailsDto fetchCutomerDetails(String mobileNumber);
+	public CutomerDetailsDto fetchCutomerDetails(String correlationId,String mobileNumber);
 }

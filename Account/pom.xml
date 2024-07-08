@@ -99,9 +99,16 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream</artifactId>
 			</dependency>
-			<dependency>
+			
+			<!--this is used for rabbitmq-->
+			<!--<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+			</dependency>-->
+			<!--this is used for apache kafka-->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-stream-binder-kafka</artifactId>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

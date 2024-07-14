@@ -1,0 +1,33 @@
+Spring security Notes 
+
+when spring security dependency is added to the project it automatically protects all the endpoints present in the application and it automatically generates the random password and this password creation implementation is written in SecurityProperties class file.
+
+when we want to set the username and password for login default we user application.properties files and write 
+
+spring.security.user.name=username
+
+spring.security.user.password=password these will be the new login creds
+
+in spring security we user filters to pre check the request before executing the business logic
+
+
+internal flow of spring security 
+
+1. user entered credentials
+2. spring security filters
+3. authentication
+4. authentication manager
+5. authentication providers
+6. user details manager/service
+7. password encoders
+8. authentication provider
+9. authentication manager
+10. spring security filers
+11. security context
+12. user entered creds
+
+first request comes from user and it is in form https so it is converted into Authentication object and then it is passed to authentication manager and then to authentication provider and authentication provider uses user details manager to load data on the basis of user name received and it also uses password encoder to validate the user and once done authentication object is passed back to authentication provider and then to authentication manager and then to filers and then to security context and then to user screen
+
+to print the logs which are written in the security classes we use property like
+logging.level.org.springframework.security={SPRING_SECURITY_LOG_LEVEL:TRACE}
+

@@ -31,3 +31,7 @@ first request comes from user and it is in form https so it is converted into Au
 to print the logs which are written in the security classes we use property like
 logging.level.org.springframework.security={SPRING_SECURITY_LOG_LEVEL:TRACE}
 
+when we do not specify any filter we have defaultSecurityFilterChain which authorize any request coming.
+
+create a configuration class and in that class create bean which returns securityfilterchain object to provide custom filter for authentication.
+
